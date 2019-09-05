@@ -11,7 +11,7 @@ T_CFLAGS := --coverage -g -Wall -O3
 INC := -I include -I third-party
 
 
-MODULES = 
+MODULES = d1
 SOURCES = $(addsuffix .cpp,$(MODULES))
 OBJECTS = $(patsubst %.cpp, %.o, $(SOURCES))
 TESTS = $(addprefix test_,$(SOURCES))
@@ -19,25 +19,25 @@ TESTSEXE = $(addsuffix .exe,$(TESTS))
 TESTSEXEDIR = $(addprefix bin/,$(TESTSEXE))
 COVER = $(addsuffix .gcov,$(SOURCES))
 
-SOURCEDIR = $(addprefix $(MYDIR)src/,$(SOURCES))
+SOURCEDIR = $(addprefix $(MYDIR)/,$(SOURCES))
 OBJDIR = $(addprefix build/,$(OBJECTS))
 TSTDIR = $(addprefix tests/test_,$(SOURCES))
-TGTDIR = $(BIN)/$(TARGET)
+TGTDIR = $(MYDIR)
 
 all: $(TGTDIR)
 
-$(OBJDIR): build/%.o : src/%.cpp
+$(OBJDIR): build/%.o : %.cpp
 	@echo ""
 	@echo OBJETO: $@
 	$(shell mkdir -p build)
 	#@mkdir -p ../build
-	$(CC) $(INC) $(CFLAGS) -c $(patsubst build/%.o,src/%.cpp,$@) -o $@
+	$(CC) $(INC) $(CFLAGS) -c $(patsubst build/%.o,%.cpp,$@) -o $@
 
 $(TGTDIR): $(OBJDIR)
 	@echo ""
 	@echo COMPILANDO MAIN
 	@mkdir -p bin
-	$(CC) $(INC) $(CFLAGS) $(OBJDIR) program/$(TARGET).cpp -o $(TGTDIR)
+	$(CC) $(INC) $(CFLAGS) $(OBJDIR) $(TARGET).cpp -o $(TARGET)
 
 
 tester: $(TESTS)
@@ -50,21 +50,21 @@ $(TESTS): tests/test_%.o : tests/test_%.cpp
 	$(RM) test_*.gcno
 
 comp: $(TGTDIR)
-	$(CC) $(INC) $(CFLAGS) $(OBJDIR) program/$(TARGET).cpp -o $(TGTDIR)
-	@bin/main.exe
+	$(CC) $(INC) $(CFLAGS) $(OBJDIR) $(TARGET).cpp -o $(TARGET)
+	@./main
 	$(RM) main.gcno
 	$(RM) main.gcda
 
 run:
-	@bin/main.exe
+	@./main
 	$(RM) main.gcno
 	$(RM) main.gcda
 
 debug:
-	@gdb $(BIN)/main.exe
+	@gdb main
 
 coverage: $(COVER)
-$(COVER): src/%.gcov : src/%.cpp
+$(COVER): %.gcov : %.cpp
 	@echo ""
 	@echo POSIÇAO: $@
 	@gcov src/$(patsubst %.cpp.gcov,%.cpp,$@) -l -p -o build
@@ -74,6 +74,6 @@ $(COVER): src/%.gcov : src/%.cpp
 	$(RM) *.gcda *.gcno
 
 clean:
-	$(RM) -r build/* coverage/* *.gcda *.gcno *.gcov *.exe *.o bin/*
+	$(RM) -r build/* coverage/* *.gcda *.gcno *.gcov *.exe *.o bin/* main
 
 .PHONY: clean coverage
