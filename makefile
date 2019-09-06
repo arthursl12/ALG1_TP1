@@ -11,7 +11,7 @@ T_CFLAGS := --coverage -g -Wall -O3
 INC := -I include -I third-party
 
 
-MODULES = d1
+MODULES = operacoes
 SOURCES = $(addsuffix .cpp,$(MODULES))
 OBJECTS = $(patsubst %.cpp, %.o, $(SOURCES))
 TESTS = $(addprefix test_,$(SOURCES))
@@ -51,12 +51,15 @@ $(TESTS): tests/test_%.o : tests/test_%.cpp
 
 comp: $(TGTDIR)
 	$(CC) $(INC) $(CFLAGS) $(OBJDIR) $(TARGET).cpp -o $(TARGET)
-	@./main
+
+#Use o comando do make: 'make run TXT=nome'
+run:
+	@./main $(TXT)
 	$(RM) main.gcno
 	$(RM) main.gcda
 
-run:
-	@./main
+exrun:
+	@./main exemplo.txt
 	$(RM) main.gcno
 	$(RM) main.gcda
 
