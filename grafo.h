@@ -5,7 +5,7 @@
 
 typedef std::vector<std::vector<int>> Grafo;
 
-Grafo transposto(Grafo grafo);
+Grafo transposto(Grafo grafo, int N);
 bool vizinhos(Grafo& grafo, int A, int B);
 bool possuiVizinhos(Grafo& grafo, int V);
 
