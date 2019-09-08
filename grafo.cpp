@@ -15,7 +15,8 @@ bool possuiVizinhos(Grafo& grafo, int V){
     return (grafo[V].size() > 0);
 }
 
-/* Retorna o grafo transposto de 'grafo', que possui N vértices */
+/* Retorna o grafo transposto de 'grafo', que possui N vértices. 
+Complexidade linear com o grafo, pois faz uma passada por toda a lista de adjacências */
 Grafo transposto(Grafo grafo, int N){
     Grafo TP;
     for (int i = 0; i < N; i++){
@@ -23,7 +24,6 @@ Grafo transposto(Grafo grafo, int N){
         std::vector<int> n1;
         TP.push_back(n1);
     }
-    std::cout << "A1" << std::endl;
     for (int i = 0; i < N; i++){
         if (!grafo[i].empty()){
             for(auto it = grafo[i].begin(); it != grafo[i].end(); it++){

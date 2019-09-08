@@ -46,12 +46,10 @@ int main(int argc, char* argv[]){
     /* Leitura das instruções e execução de cada uma delas */
     for (int i = 0; i < Instr; i++){
         std::getline(arq,Linha);
-        if (Linha[0] == 'C') Commander(Linha, grafo);
+        if (Linha[0] == 'C') Commander(Linha, grafo, N, idades);
         if (Linha[0] == 'M') Meeting(grafo);
         if (Linha[0] == 'S') Swap(Linha, grafo);
     }
-
-    transposto(grafo, N);
 
     arq.close();
     return 0;

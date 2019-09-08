@@ -48,4 +48,39 @@ TEST_CASE("DFS"){
     CHECK(ciclo == false);
 }
 
+TEST_CASE("DFS_idade"){
+    Grafo g = constroi_grafo();
+    Grafo TP = transposto(g, 7);
+    std::vector<int> idades = {21, 33, 34, 18, 42, 22, 26};
+
+    /* Pessoa mais jovem que comanda I */
+    int idade0 = -1;
+    DFS(TP, 0, idade0, idades);
+    CHECK(idade0 == -1);
+
+    int idade1 = -1;
+    DFS(TP, 1, idade1, idades);
+    CHECK(idade1 == 21);
+
+    int idade2 = -1;
+    DFS(TP, 2, idade2, idades);
+    CHECK(idade2 == 21);
+
+    int idade3 = -1;
+    DFS(TP, 3, idade3, idades);
+    CHECK(idade3 == -1);
+
+    int idade4 = -1;
+    DFS(TP, 4, idade4, idades);
+    CHECK(idade4 == 21);
+
+    int idade5 = -1;
+    DFS(TP, 5, idade5, idades);
+    CHECK(idade5 == 18);
+
+    int idade6 = -1;
+    DFS(TP, 6, idade6, idades);
+    CHECK(idade6 == 18);
+}
+
 

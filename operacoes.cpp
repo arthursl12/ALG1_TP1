@@ -42,19 +42,21 @@ void Meeting(Grafo& grafo){
 
 /* Recebe uma pessoa P e imprime qual a pessoa mais jovem que a comanda, direta ou indiretamente
 Se P não comandar ninguém, imprime '*' */
-void Commander(std::string instr, Grafo& grafo){
+void Commander(std::string instr, Grafo& grafo, int N, std::vector<int>& idades){
     std::string aux;
     str_tok(instr," ", aux);
     str_tok(instr," ", aux);
     int P = std::stoi(aux);
-    // Transposto(grafo)
-    // DFS_procura idade
-    int resp = -1;
-    if (resp == -1){
+    P--;
+    Grafo TP = transposto(grafo, N);
+    /* Procura a idade */
+    int idade = -1;
+    DFS(TP, P, idade, idades);
+    if (idade == -1){
         /* Aluno não é comandado por ninguém */
         std::cout << "C *" << std::endl;
     }else{
-        std::cout << "C " << resp << std::endl;
+        std::cout << "C " << idade << std::endl;
     }
 }
 
@@ -65,8 +67,10 @@ void Swap(std::string instr, Grafo& grafo){
     str_tok(instr," ", aux);
     str_tok(instr," ", aux);
     int A = std::stoi(aux);
+    A--;
     str_tok(instr," ", aux);
     int B = std::stoi(aux);
+    B--;
     
     // Verifica aresta
     if (!vizinhos(grafo,A,B)){

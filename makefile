@@ -67,10 +67,10 @@ debug:
 	@gdb main
 
 coverage: $(COVER)
-$(COVER): %.gcov : %.cpp
+$(COVER): build/%.gcov : %.cpp
 	@echo ""
 	@echo POSIÇAO: $@
-	@gcov src/$(patsubst %.cpp.gcov,%.cpp,$@) -l -p -o build
+	@gcov $(patsubst %.cpp.gcov,%.cpp,$@) -l -p -o build
 	
 	$(RM) src#$(patsubst %.cpp.gcov,%.cpp,$@)#*.gcov
 	$(RM) #usr#lib*.gcov
