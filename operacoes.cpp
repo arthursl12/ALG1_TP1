@@ -1,4 +1,5 @@
 #include "operacoes.h"
+#include "DFS.h"
 
 /* Particiona a string 'str' pelo delimitador 'delimiter' e guarda o token particionado na string 'token' (o token é removido da string original);
 Se não encontrar o token, apenas coloca a string original no 'token';
@@ -20,15 +21,23 @@ bool str_tok(std::string& str, std::string delimiter, std::string& token){
 palavras, propõe uma ordem de fala na reunião em que um subordinado não pode falar
 antes de algum superior direto ou indireto */
 void Meeting(Grafo& grafo){
-    std::stack<int> pilha;
-    // DFS_Pilha
+    std::vector<int> result;
+    bool ciclo;
+    DFS(grafo, result, ciclo);
     std::cout << "M ";
-    while(!pilha.empty()){
-        int A = pilha.top();
-        std::cout << A;
-        pilha.pop();
-        if (pilha.size() != 0) std::cout << " ";
+    
+    std::cout << result[0];
+    std::cout << result[1];
+    std::cout << result[2];
+    std::cout << result[3];
+    std::cout << result[4];
+    std::cout << result[5];
+    std::cout << result[6];
+
+    for (int j = 0; j < 5; j++){
+        std::cout << j;
     }
+
     std::cout << std::endl;
 }
 
@@ -48,15 +57,6 @@ void Commander(std::string instr, Grafo& grafo){
     }else{
         std::cout << "C " << resp << std::endl;
     }
-}
-
-/* Analisa se existe a aresta (A,B) no grafo. Retorna 'True' ou 'False'. 
-Complexidade linear */
-bool vizinhos(Grafo& grafo, int A, int B){
-    bool result = false;
-    for (int i = 0; (unsigned int) i < grafo[A].size(); i++)
-        if (grafo[A][B] == true) result = true;
-    return result;
 }
 
 /* Verifica se A comanda B. Se sim, inverte: B comanda A. Verifica se a inversão

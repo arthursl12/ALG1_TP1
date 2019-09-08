@@ -11,7 +11,7 @@ T_CFLAGS := --coverage -g -Wall -O3
 INC := -I include -I third-party
 
 
-MODULES = operacoes
+MODULES = DFS grafo operacoes
 SOURCES = $(addsuffix .cpp,$(MODULES))
 OBJECTS = $(patsubst %.cpp, %.o, $(SOURCES))
 TESTS = $(addprefix test_,$(SOURCES))
@@ -45,7 +45,7 @@ $(TESTS): tests/test_%.o : tests/test_%.cpp
 	$(shell mkdir -p tests)
 	@echo ""
 	@echo TESTE: $@
-	$(CC) $(INC) $(T_CFLAGS) tests/$@ $(OBJDIR) -o bin/$@.exe
+	$(CC) $(INC) -I.. $(T_CFLAGS) tests/$@ $(OBJDIR) -o bin/$@.exe
 	bin/$@.exe
 	$(RM) test_*.gcno
 

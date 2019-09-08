@@ -1,5 +1,6 @@
 #include <fstream>
 #include "operacoes.h"
+#include "DFS.h"
 
 int main(int argc, char* argv[]){
     /* Coleta o argumento: nome do arquivo a ser lido e abre o arquivo*/
@@ -49,7 +50,6 @@ int main(int argc, char* argv[]){
         if (Linha[0] == 'M') Meeting(grafo);
         if (Linha[0] == 'S') Swap(Linha, grafo);
     }
-
     arq.close();
     return 0;
 }
