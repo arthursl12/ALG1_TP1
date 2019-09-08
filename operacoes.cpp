@@ -23,15 +23,20 @@ antes de algum superior direto ou indireto */
 void Meeting(Grafo& grafo){
     std::vector<int> result;
     bool ciclo;
+    /* A ordenação topológica é feita pelo DFS */
     DFS(grafo, result, ciclo);
     std::cout << "M ";
 
-    auto it = result.end();
-    for (; it != result.begin(); it--){
-        std::cout << *it+1 << " ";
+    /* Temos invertemos a ordem para atender à especificação (o DFS retorna 
+    subordinados falando antes dos comandantes*/
+    int max = result.size();
+    int i = 1;
+    for (auto it = result.rbegin(); it != result.rend(); it++){
+        std::cout << (*it)+1;
+        if (i == max) break;
+        std::cout << " ";
+        i++;
     }
-    std::cout << *it+1 << std::endl;
-
     std::cout << std::endl;
 }
 
