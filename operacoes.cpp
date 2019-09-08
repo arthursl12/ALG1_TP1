@@ -25,18 +25,12 @@ void Meeting(Grafo& grafo){
     bool ciclo;
     DFS(grafo, result, ciclo);
     std::cout << "M ";
-    
-    std::cout << result[0];
-    std::cout << result[1];
-    std::cout << result[2];
-    std::cout << result[3];
-    std::cout << result[4];
-    std::cout << result[5];
-    std::cout << result[6];
 
-    for (int j = 0; j < 5; j++){
-        std::cout << j;
+    auto it = result.end();
+    for (; it != result.begin(); it--){
+        std::cout << *it+1 << " ";
     }
+    std::cout << *it+1 << std::endl;
 
     std::cout << std::endl;
 }
