@@ -3,7 +3,7 @@ MYDIR := $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 SRCDIR := src
 BIN := bin
 BUILDDIR := build
-TARGET := main
+TARGET := tp1
 
 SRCEXT := cpp
 CFLAGS := --coverage -g -Wall -Wno-unknown-pragmas -O3 -std=c++11
@@ -54,17 +54,17 @@ comp: $(TGTDIR)
 
 #Use o comando do make: 'make run TXT=nome'
 run:
-	@./main $(TXT)
-	$(RM) main.gcno
-	$(RM) main.gcda
+	@./tp1 $(TXT)
+	$(RM) tp1.gcno
+	$(RM) tp1.gcda
 
 exrun:
-	@./main exemplo.txt
-	$(RM) main.gcno
-	$(RM) main.gcda
+	@./tp1 exemplo.txt
+	$(RM) tp1.gcno
+	$(RM) tp1.gcda
 
 debug:
-	@gdb main
+	@gdb tp1
 
 coverage: $(COVER)
 $(COVER): build/%.gcov : %.cpp
@@ -78,6 +78,6 @@ $(COVER): build/%.gcov : %.cpp
 	$(RM) *.gcda *.gcno
 
 clean:
-	$(RM) -r build/* coverage/* *.gcda *.gcno *.gcov *.exe *.o bin/* main
+	$(RM) -r build/* coverage/* *.gcda *.gcno *.gcov *.exe *.o bin/* tp1
 
 .PHONY: clean coverage
