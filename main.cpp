@@ -50,7 +50,6 @@ int main(int argc, char* argv[]){
         if (Linha[0] == 'M') Meeting(grafo);
         if (Linha[0] == 'S') Swap(Linha, grafo);
     }
-
     arq.close();
     return 0;
 }

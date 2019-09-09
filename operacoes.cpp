@@ -72,19 +72,25 @@ void Swap(std::string instr, Grafo& grafo){
     int B = std::stoi(aux);
     B--;
     
-    // Verifica aresta
+    /* Verifica aresta */
     if (!vizinhos(grafo,A,B)){
         std::cout << "S N" << std::endl;
         return;
     }
-    // Copia grafo
-    // Swap no grafo cópia
-    // DFS_procura ciclos
-    bool ciclos = false;
-    if (ciclos == true){
+    /* Copia o grafo e faz o swap na cópia */
+    Grafo C_grafo = grafo;
+    remove(C_grafo,A,B);
+    C_grafo[B].push_back(A);
+
+    /* Procura ciclos no grafo cópia */
+    bool ciclo = false;
+    std::vector<int> result;
+    DFS(C_grafo, result, ciclo);
+    
+    if (ciclo == true){
         std::cout << "S N" << std::endl;
     }else{
         std::cout << "S T" << std::endl;
-        // grafo = C_grafo;
+        grafo = C_grafo;
     }
 }

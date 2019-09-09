@@ -5,8 +5,9 @@
 Complexidade linear com o grafo */
 bool vizinhos(Grafo& grafo, int A, int B){
     bool result = false;
-    for (int i = 0; (unsigned int) i < grafo[A].size(); i++)
-        if (grafo[A][B] == true) result = true;
+    for (auto it = grafo[A].begin(); it != grafo[A].end(); it++){
+        if(*it == B) result = true;
+    }
     return result;
 }
 
@@ -33,4 +34,13 @@ Grafo transposto(Grafo grafo, int N){
         }
     }
     return TP;
+}
+
+/* Remove a aresta (A,B) do grafo 'grafo', dado que ela existe. 
+Complexidade linear com o tamanho da lista de adjacências do vértice A */
+void remove(Grafo& grafo, int A, int B){
+    auto it = grafo[A].begin();
+    while (*it != B)
+        it++;
+    grafo[A].erase(it);
 }

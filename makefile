@@ -74,6 +74,7 @@ $(COVER): build/%.gcov : %.cpp
 	
 	$(RM) src#$(patsubst %.cpp.gcov,%.cpp,$@)#*.gcov
 	$(RM) #usr#lib*.gcov
+	$(RM) *.cpp###*
 	$(RM) *.gcda *.gcno
 
 clean:
