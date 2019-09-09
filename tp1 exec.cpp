@@ -3,8 +3,6 @@
 #include "operacoes.h"
 #include "DFS.h"
 
-#define N_TESTES 15
-
 /* Inicializa o grafo, lendo as entradas do arquivo */
 void inicializacao(Grafo& grafo, std::ifstream& arq, std::vector<int>& idades, int& N, int& Instr){
     /* Parâmetros da primeira linha */
