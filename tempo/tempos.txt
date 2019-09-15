@@ -1,3 +1,60 @@
-N:0 I:0 Média:100.7 STD:30.6123
-N:3 I:6 Média:175.6 STD:86.2117
-N:7 I:8 Média:209.633 STD:78.6619
+grafo4.txt N:4 I:120 Média:15513.9 STD:3328.31 Mediana:14327.5
+grafo4.txt N:4 I:120 Média:13525.4 STD:1424.69 Mediana:12918
+grafo4.txt N:4 I:120 Média:13117.1 STD:1055.6 Mediana:12866.5
+grafo4.txt N:4 I:120 Média:13440.3 STD:1471.16 Mediana:12898.5
+grafo4.txt N:4 I:120 Média:13406.6 STD:1301.2 Mediana:12944.5
+------FIM\n
+grafo8.txt N:8 I:120 Média:13485.9 STD:1321.65 Mediana:13119.5
+grafo8.txt N:8 I:120 Média:13992.9 STD:1515.25 Mediana:13292.5
+grafo8.txt N:8 I:120 Média:13442.6 STD:1223.92 Mediana:13059.5
+grafo8.txt N:8 I:120 Média:13546.4 STD:1476.11 Mediana:13057
+grafo8.txt N:8 I:120 Média:13385 STD:1036.31 Mediana:13108.5
+------FIM\n
+grafo12.txt N:12 I:120 Média:13656.6 STD:1369.67 Mediana:13266
+grafo12.txt N:12 I:120 Média:14035.4 STD:1879.07 Mediana:13346.5
+grafo12.txt N:12 I:120 Média:13709.6 STD:1451.08 Mediana:13279.5
+grafo12.txt N:12 I:120 Média:13836.4 STD:1502.7 Mediana:13334
+grafo12.txt N:12 I:120 Média:13630.6 STD:1375.24 Mediana:13228
+------FIM\n
+grafo16.txt N:16 I:120 Média:14207.6 STD:1833.24 Mediana:13435
+grafo16.txt N:16 I:120 Média:13991.7 STD:1437.87 Mediana:13349
+grafo16.txt N:16 I:120 Média:14293.5 STD:1676.36 Mediana:13588.5
+grafo16.txt N:16 I:120 Média:14501.7 STD:1745.38 Mediana:13850.5
+grafo16.txt N:16 I:120 Média:13922.1 STD:1375.64 Mediana:13359
+------FIM\n
+grafo20.txt N:20 I:120 Média:14601.8 STD:2070.83 Mediana:13652
+grafo20.txt N:20 I:120 Média:14349.4 STD:1731.55 Mediana:13737.5
+grafo20.txt N:20 I:120 Média:14612.1 STD:1556.59 Mediana:14151
+grafo20.txt N:20 I:120 Média:14092.7 STD:1417.24 Mediana:13417
+grafo20.txt N:20 I:120 Média:14417 STD:1955.86 Mediana:13520.5
+------FIM\n
+grafo4.txt N:4 I:600 Média:75104.3 STD:10526.3 Mediana:72677
+grafo4.txt N:4 I:600 Média:71054.6 STD:7173.29 Mediana:69190.5
+grafo4.txt N:4 I:600 Média:71298.2 STD:7101.95 Mediana:69827.5
+grafo4.txt N:4 I:600 Média:71566.4 STD:7487.79 Mediana:69526.5
+grafo4.txt N:4 I:600 Média:76899.3 STD:22565.6 Mediana:69367
+------FIM\n
+grafo8.txt N:8 I:600 Média:71645.3 STD:7083.46 Mediana:69636
+grafo8.txt N:8 I:600 Média:71609.2 STD:7358.99 Mediana:69091
+grafo8.txt N:8 I:600 Média:74131.8 STD:7350.89 Mediana:74006.5
+grafo8.txt N:8 I:600 Média:76003 STD:26232.3 Mediana:66107
+grafo8.txt N:8 I:600 Média:69397 STD:6712.36 Mediana:66359
+------FIM\n
+grafo12.txt N:12 I:600 Média:71787.2 STD:11878.1 Mediana:66222.5
+grafo12.txt N:12 I:600 Média:71306.3 STD:9124.1 Mediana:67937
+grafo12.txt N:12 I:600 Média:72411.9 STD:16774.3 Mediana:66138
+grafo12.txt N:12 I:600 Média:73051.4 STD:18621.3 Mediana:67145.5
+grafo12.txt N:12 I:600 Média:67086.1 STD:4266.37 Mediana:65745
+------FIM\n
+grafo16.txt N:16 I:600 Média:73145.4 STD:10156.8 Mediana:68681.5
+grafo16.txt N:16 I:600 Média:71458.4 STD:14974.7 Mediana:67158
+grafo16.txt N:16 I:600 Média:67982.1 STD:4902.33 Mediana:65972
+grafo16.txt N:16 I:600 Média:72632.4 STD:16433.2 Mediana:66541.5
+grafo16.txt N:16 I:600 Média:69509.5 STD:7290.04 Mediana:66519.5
+------FIM\n
+grafo20.txt N:20 I:600 Média:79097 STD:30388.5 Mediana:67804.5
+grafo20.txt N:20 I:600 Média:71671.6 STD:8495.91 Mediana:68388
+grafo20.txt N:20 I:600 Média:73501.6 STD:10430.2 Mediana:69575
+grafo20.txt N:20 I:600 Média:81767.7 STD:24218.4 Mediana:75378
+grafo20.txt N:20 I:600 Média:69230.3 STD:6898.72 Mediana:67008
+------FIM\n

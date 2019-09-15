@@ -1,6 +1,7 @@
 #include <fstream>
 #include <chrono>
 #include <cmath>
+#include <bits/stdc++.h> 
 #include "operacoes.h"
 #include "DFS.h"
 
@@ -47,6 +48,14 @@ double media(int tempos[]){
         soma += tempos[i];
     }
     return soma/N_TESTES;
+}
+
+double mediana(int tempos[]){
+    std::sort(tempos, tempos+N_TESTES);
+    if (N_TESTES % 2 != 0) 
+       return (double)tempos[N_TESTES/2]; 
+      
+    return (double)(tempos[(N_TESTES-1)/2] + tempos[N_TESTES/2])/2.0; 
 }
 
 double dev(int tempos[], double med){
@@ -105,6 +114,7 @@ int main(int argc, char* argv[]){
     }
     double med = media(tempos_int);
     double st = dev(tempos_int,med);
-    out << "N:" << N << " I:" << Instr << " Média:" << med << " STD:" << st << std::endl;
+    double md = mediana(tempos_int);
+    out << nome_arq << " N:" << N << " I:" << Instr << " Média:" << med << " STD:" << st << " Mediana:" << md << std::endl;
     return 0;
 }
