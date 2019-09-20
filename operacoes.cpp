@@ -60,7 +60,7 @@ void Commander(std::string instr, Grafo& grafo, int N, std::vector<int>& idades)
     }
 }
 
-/* Verifica se A comanda B. Se sim, inverte: B comanda A. Verifica se a inversão
+/* Verifica se A comanda B (ou B comanda A). Se sim, inverte-se a direção da aresta. Verifica se a inversão
 não cria ciclos. Se não, mantém a inversão. Se sim, não altera a aresta */
 void Swap(std::string instr, Grafo& grafo){
     std::string aux;
@@ -73,14 +73,25 @@ void Swap(std::string instr, Grafo& grafo){
     B--;
     
     /* Verifica aresta */
-    if (!vizinhos(grafo,A,B)){
+    bool AB = vizinhos(grafo,A,B);
+    bool BA = vizinhos(grafo,B,A);
+    
+    if (AB == false && BA == false){
         std::cout << "S N" << std::endl;
         return;
     }
+    
     /* Copia o grafo e faz o swap na cópia */
     Grafo C_grafo = grafo;
-    remove(C_grafo,A,B);
-    C_grafo[B].push_back(A);
+    if (AB == true){
+        remove(C_grafo,A,B);
+        C_grafo[B].push_back(A);
+    }else{
+        Grafo C_grafo = grafo;
+        remove(C_grafo,B,A);
+        C_grafo[A].push_back(B);
+    }
+    
 
     /* Procura ciclos no grafo cópia */
     bool ciclo = false;
